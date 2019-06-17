@@ -1,0 +1,8 @@
+<h1>Hello <%= current_user.name %>!!</h1>
+<% if current_user.phoneNo %>
+    <p><%= current_user.phoneNo %></p>
+<% elsif %>
+    <p>No Contact number yet</p>
+<% end %>
+<%= current_user.email %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>

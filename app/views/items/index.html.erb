@@ -1,0 +1,6 @@
+<h1>Items</h1>
+<% @items.each do |i| %>
+    <p><%= link_to i.name, item_path(i) %> | <%= link_to i.menu.name, menu_path(i.menu_id) %> | <%= link_to "Delete Item", i, data: { confirm: "Are you sure you want to delete this item?"}, :method => :delete %></p>
+<% end %>
+<%= link_to 'Add Item', new_item_path %>
+<%= link_to 'Back to Menus', menus_path %>

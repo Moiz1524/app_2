@@ -1,0 +1,6 @@
+<%= form_for @addon do |f| %>
+    <p>Name:  <%= f.text_field :name %></p>
+    <p>Price: <%= f.text_field :price %></p>
+    <%= f.select :item_id, Item.all.collect{|x| [x.name, x.id]}, {:include_blank => "Select One"}%><br>
+    <%= f.submit "Create Addon" %>
+<% end %>

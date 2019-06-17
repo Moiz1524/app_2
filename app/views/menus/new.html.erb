@@ -1,0 +1,11 @@
+<%= form_for @menu do |f| %>
+    <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </p>
+    <p>
+        <%= f.label :price %><br />
+        <%= f.text_field :price, autofocus: true, autocomplete: "price" %>
+    </p>
+    <%= f.submit %>
+<% end %>

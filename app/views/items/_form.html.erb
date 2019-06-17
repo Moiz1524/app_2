@@ -1,0 +1,22 @@
+<%= form_for @item do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name, required: true %>
+  </div>
+    <p>
+         <%#= f.text_field :menu_id, Menu.find(params[:id]) %>
+         <%#= f.text_field :menu_id, Menu.find(:menu_id), required: true %>
+        Menu: <%= f.select :menu_id , Menu.all.collect{|x| [x.name, x.id]}, {:include_blank => "Select One",required: true,selected: params[:menu_id]} %><br>
+    </p>
+  <h3>Addons</h3>
+  <div id='addons'>
+    <%= f.fields_for :addons do |addon| %>
+      <%= render 'addon_fields', :f => addon %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add addon', f, :addons %>
+    </div>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>

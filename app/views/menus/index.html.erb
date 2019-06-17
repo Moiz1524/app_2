@@ -1,0 +1,13 @@
+<h1>Listing Menus</h1>
+<% @menus.each do |m| %>
+    <%= m.name %>
+    <%= link_to "Show", menu_path(m) %>
+    <% if can? :update, m %>
+        <%= link_to "Edit", edit_menu_path(m) %>
+    <% end %>
+    <% if can? :destroy, m %>
+        <%= link_to "Delete", m, data: { confirm: 'Are you sure you want to delete this menu?' }, method: :delete %><br>
+    <% end %><br>
+<% end %>
+<br>
+<%= link_to "Add Menu", new_menu_path %>

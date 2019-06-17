@@ -1,0 +1,5 @@
+<%= form_for @item do |f| %>
+    Name: <%= f.text_field :name %><br>
+    Menu: <%= f.select :menu_id, Menu.all.collect {|x| [x.name, x.id]}, {:include_blank => "Update One"} %><br>
+    <%= f.submit %>
+<% end %>

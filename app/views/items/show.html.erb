@@ -1,0 +1,6 @@
+<h1><%= @item.name %></h1>
+<h3>Addons</h3>
+<% @addons.each do |a| %>
+    <p><%= a.name %> | <%= a.price %></p>
+<% end %>
+<%= link_to "Add Addons", new_addon_path %>

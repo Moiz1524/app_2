@@ -1,0 +1,19 @@
+<h1>Specific Menu</h1>
+<div class="">
+    <h1><%= @menu.name %></h1> 
+    <p>Price: <%= @menu.price %></p>
+    <p>Created At: <%= @menu.created_at.strftime("%b %d. %Y") %></p>
+    <p>Updated At: <%= @menu.updated_at %></p>
+    <h3>Items:</h3>
+    <% if @items == [] %>
+        <p>No Items exist</p>
+    <% else %>
+        <% @items.each do |i| %>
+            <li><%= link_to i.name, item_path(i) %></li>
+        <% end %>
+    <% end %>
+    <% if can? :create, @items %>
+        <%= link_to 'Add Items', new_item_path(:menu_id => @menu.id) %>
+    <% end %>
+    <%= link_to 'Back', menus_path %>
+</div>

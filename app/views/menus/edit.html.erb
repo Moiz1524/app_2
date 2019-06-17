@@ -1,0 +1,5 @@
+<%= form_for @menu do |m| %>
+    Title: <%= m.text_field :name %><br>
+    Price: <%= m.text_field :price %><br>
+    <%= m.submit "Update" %>
+<% end %>
